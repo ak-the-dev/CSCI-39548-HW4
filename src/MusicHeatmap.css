@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.heatmap-container {
+    max-width: 95%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.months-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.month {
+    width: calc(100% / 4 - 20px);
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.month-name {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.day {
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    border-radius: 3px;
+    background-color: #e0e0e0;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.day:hover {
+    outline: 2px solid #333;
+    transform: scale(1.1);
+}
+
+.day.highlight {
+    outline: 2px solid #000;
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+.days.dimmed .day {
+    opacity: 0.3;
+}
+
+.days.dimmed .day.highlight {
+    opacity: 1;
+}
+
+.empty-day {
+    background-color: transparent;
+    pointer-events: none;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    display: none;
+    z-index: 1000;
+    white-space: pre-line;
+}
+
+@media screen and (max-width: 768px) {
+    .month {
+        width: calc(100% / 2 - 20px);
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .month {
+        width: calc(100% - 20px);
+    }
+
+    h1 {
+        font-size: 1rem;
+    }
+}
